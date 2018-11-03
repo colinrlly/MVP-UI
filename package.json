@@ -1,0 +1,22 @@
+{
+  "name": "mvp-ui",
+  "version": "1.0.0",
+  "description": "UI For Minimal Viable Product Food Computer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colinrlly/MVP-UI.git"
+  },
+  "author": "Colin Reilly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colinrlly/MVP-UI/issues"
+  },
+  "homepage": "https://github.com/colinrlly/MVP-UI#readme",
+  "devDependencies": {
+    "@material-ui/core": "^3.3.2"
+  }
+}
