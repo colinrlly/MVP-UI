@@ -5,7 +5,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField';
-import { MenuItem, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 const styles = theme => ({
   layout: {
@@ -42,13 +42,46 @@ const styles = theme => ({
 class App extends Component {
   state = {
     subject: '',
+    subject_dependent: '',
   }
 
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
+      subject_dependent: test,
     });
   };
+
+  handleSubmit(event) {
+    event.preventDefault();
+    
+    const data = new FormData(event.target);
+
+    const date = data.get('date');
+    const field = data.get('field');
+    const trial = data.get('trial');
+    const plot = data.get('plot');
+    const height = data.get('height');
+    const weight = data.get('weight');
+    const edible_mass = data.get('edible_mass');
+
+    let inputs = [
+      height,
+      weight,
+      edible_mass,
+    ]
+
+    for (let i = 0; i < inputs.length; i++) {
+      if (inputs[i]) {
+        console.log(`
+          date ${date}\n
+          field ${field}\n
+          trial ${trial}\n
+          plot ${plot}\n
+          input ${inputs[i]}`);
+      }
+    }
+  }
 
   render() {
     const { classes } = this.props;
@@ -59,46 +92,56 @@ class App extends Component {
             <Typography variant="h5" component="h5">
               PhenoType Form
             </Typography>
-            <form className={classes.form}>
+            <form className={classes.form} onSubmit={this.handleSubmit}>
               <FormControl margin="normal" fullWidth>
-              <TextField
-                label="Date"
-                type="datetime-local"
-                name="date"
-                defaultValue="2018-11-03T10:30"
-              />
+                <TextField
+                  label="Date"
+                  type="datetime-local"
+                  name="date"
+                  defaultValue="2018-11-03T10:30"
+                  required
+                />
               </FormControl>
               <FormControl margin="normal" fullWidth>
                 <TextField
                   label="Field"
                   name="field"
+                  required
                 />
               </FormControl>
               <FormControl margin="normal" fullWidth>
                 <TextField
                   label="Trial"
                   name="trial"
+                  required
                 />
               </FormControl>
               <FormControl margin="normal" fullWidth>
                 <TextField
                   label="Plot"
                   name="plot"
+                  required
                 />
               </FormControl>
               <FormControl margin="normal" fullWidth>
                 <TextField
-                  label="Subject"
-                  name="subject"
-                  select
-                  value={this.state.subject}
-                  onChange={this.handleChange('subject')}
-                >
-                  <MenuItem key='height' value="1">Height</MenuItem>
-                  <MenuItem key='weight' value="2">Weight</MenuItem>
-                  <MenuItem key='edible mass' value="3">Edible Mass</MenuItem>
-                </TextField>
+                  label="Height"
+                  name="height"
+                />
               </FormControl>
+              <FormControl margin="normal" fullWidth>
+                <TextField
+                  label="Weight"
+                  name="weight"
+                />
+              </FormControl>
+              <FormControl margin="normal" fullWidth>
+                <TextField
+                  label="Edible Mass"
+                  name="edible_mass"
+                />
+              </FormControl>
+              {this.state.subject_dependent}
               <Button
                 type="submit"
                 fullWidth
