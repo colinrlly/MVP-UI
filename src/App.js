@@ -66,20 +66,57 @@ class App extends Component {
     const edible_mass = data.get('edible_mass');
 
     let inputs = [
-      height,
-      weight,
-      edible_mass,
-    ]
+      {
+        name: "height",
+        value: height
+      },
+      {
+        name: "weight",
+        value: weight
+      },
+      {
+        name: "edible_mass",
+        value: edible_mass
+      },
+    ];
 
-    for (let i = 0; i < inputs.length; i++) {
-      if (inputs[i]) {
-        console.log(`
-          date ${date}\n
-          field ${field}\n
-          trial ${trial}\n
-          plot ${plot}\n
-          input ${inputs[i]}`);
-      }
+    let entries = inputs
+      .filter(x => x.value)
+      .map((input) => {
+        return {
+          "_id": "something",
+          "_rev": "something",
+          "status": {
+            "status": "Complete",
+            "status_qualifier": "Success"
+          },
+          "participant": {
+            "type": "person",
+            "name": "TODO"
+          },
+          "field": field,
+          "location": {
+            "field": field,
+            "plot": plot,
+            "trial": trial
+          },
+          "activity_type": "Phenotype_Observation",
+          "start_date": {
+            "timestamp": date
+          },
+          "subject": {
+            "attribute": {
+              "units": "TODO",
+              "name": input.name,
+              "value": input.value
+            },
+            "name": "Plant"
+          }
+        }
+    })
+
+    for (let i = 0; i < entries.length; i++) {
+      console.log(entries[i]);
     }
   }
 
