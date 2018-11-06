@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/mvp-ui/static/js/runtime~main.b18a0c3f.js"
   },
   {
-    "revision": "d5aa4e6a61c264ea4925",
-    "url": "/mvp-ui/static/js/main.d5aa4e6a.chunk.js"
+    "revision": "4b1c2fb1db08cc28f333",
+    "url": "/mvp-ui/static/js/main.4b1c2fb1.chunk.js"
   },
   {
     "revision": "665dc639204940dc05d1",
     "url": "/mvp-ui/static/js/1.665dc639.chunk.js"
   },
   {
-    "revision": "d5aa4e6a61c264ea4925",
+    "revision": "4b1c2fb1db08cc28f333",
     "url": "/mvp-ui/static/css/main.c3ed4ee9.chunk.css"
   },
   {
-    "revision": "c70ec9635010b767edcd0b8bbfd0dbd5",
+    "revision": "2fcb4dc890c88d260f1b484389bc9ae1",
     "url": "/mvp-ui/index.html"
   }
 ];
